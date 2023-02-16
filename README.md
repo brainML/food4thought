@@ -25,7 +25,7 @@ The visual food localizer is built on the fLoc localizer published in [Stigliani
 Follow the [fLoc instructions](https://github.com/VPNL/fLoc#analysis) to analyse the data using vistasoft. 
 
 ### Method 2
-The localizer code is organized as such, with each file being independently runnable:
+The localizer data from our paper is available at [this link](https://kilthub.cmu.edu/articles/dataset/Selectivity_for_food_in_human_ventral_visual_cortex/22049177). The localizer code is organized as such, with each file being independently runnable:
 - analysis
   - run_all.ipynb used to run the localizer analysis for identifying food regions
   - A set of .py files containing the necessary analysis and utility functions
@@ -39,7 +39,7 @@ The localizer code is organized as such, with each file being independently runn
   - Directory for storing the eventual results
 
 ## NSD data analysis
-The NSD code is organized as such, with each file being independently runnable:
+The NSD data was collected by [Allen et al., 2021](https://www.nature.com/articles/s41593-021-00962-x) and is freely available at http://naturalscenesdataset.org/. The NSD code is organized as such, with each file being independently runnable:
 - Analysis
   - Encoding models
   - OLS encoding model

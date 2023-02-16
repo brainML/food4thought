@@ -1,7 +1,44 @@
 # food4thought
 
-This repo includes the code and data required to replicate the results of the paper: "Selectivity for food in human ventral visual cortex". 
+This repo includes the visual food localizer and the code and data required to replicate the results of the paper: ["Selectivity for food in human ventral visual cortex"](https://www.nature.com/articles/s42003-023-04546-2). 
 
+## Localizer
+
+The visual food localizer is built on the fLoc localizer published in [Stigliani et al., 2015](https://www.jneurosci.org/content/35/36/12412). To run this localizer:
+1. Download and install the [fLoc localizer](https://github.com/VPNL/fLoc) following the instructions provided. Make sure the localizer is running as expected.
+2. Copy the food image directory `food4thought/localizer/food` from this repository into the `fLoc/stimuli` directory in the fLoc repository. I.e., there needs to be a new directory named `food` along with the other directories (`adult`,`body`,`car`, etc.).
+3. Add the line `stim_set3 = {'food','body' 'word' 'adult', 'house'};` after the line 24 of `fLoc/functions/fLocSequence.m`. Change the new line 27 to `stim_per_set = 80;` (this will change the localizer to only use the first 80 images of each category). Add the following case to the `run_sets` function after line 107:
+```
+    case 4
+        run_sets = repmat(seq.stim_set3, seq.num_runs, 1);
+```
+4. Change the while loop on line 42 of `fLoc/runme.m` to:
+```
+    while ~ismember(stim_set, 1:4)
+        stim_set = input('Which stimulus set? (1 = standard, 2 = alternate, 3 = both, 4 = food) : ');
+    end
+```
+5. When running the localizer, specify option 4. The run should take 4 min exactly.
+
+## Localizer data analysis
+### Method 1
+Follow the [fLoc instructions](https://github.com/VPNL/fLoc#analysis) to analyse the data using vistasoft. 
+
+### Method 2
+The localizer code is organized as such, with each file being independently runnable:
+- analysis
+  - run_all.ipynb used to run the localizer analysis for identifying food regions
+  - A set of .py files containing the necessary analysis and utility functions
+- data
+  - Preprocessed localizer fMRI data for each subject along with the stimulus log files
+- pycortex_db
+  - Pycortex store for the food localizer subjects. Should be added to local pycortex store after pycortex installation
+- food_images
+  - The food images used in the food localizer
+- res
+  - Directory for storing the eventual results
+
+## NSD data analysis
 The NSD code is organized as such, with each file being independently runnable:
 - Analysis
   - Encoding models
@@ -21,19 +58,6 @@ The NSD code is organized as such, with each file being independently runnable:
   - Example visualization tool 
 
 Note: Voxel data is assumed to be inputted in a format of stimuli * voxel cortical surface
-
-The localizer code is organized as such, with each file being independently runnable:
-- analysis
-  - run_all.ipynb used to run the localizer analysis for identifying food regions
-  - A set of .py files containing the necessary analysis and utility functions
-- data
-  - Preprocessed localizer fMRI data for each subject along with the stimulus log files
-- pycortex_db
-  - Pycortex store for the food localizer subjects. Should be added to local pycortex store after pycortex installation
-- food_images
-  - The food images used in the food localizer
-- res
-  - Directory for storing the eventual results
 
 
 

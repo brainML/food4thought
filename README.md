@@ -1,6 +1,6 @@
 # food4thought
 
-This repo includes the visual food localizer and the code and data required to replicate the results of the paper: ["Selectivity for food in human ventral visual cortex"](https://www.nature.com/articles/s42003-023-04546-2). 
+This repo includes the visual food localizer, the code and the links to data required to replicate the results of the paper: ["Selectivity for food in human ventral visual cortex"](https://www.nature.com/articles/s42003-023-04546-2). 
 
 ## Localizer
 

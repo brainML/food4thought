@@ -25,15 +25,15 @@ The visual food localizer is built on the fLoc localizer published in [Stigliani
 Follow the [fLoc instructions](https://github.com/VPNL/fLoc#analysis) to analyse the data using vistasoft. 
 
 ### Method 2
-The localizer data from our paper is available at [this link](https://kilthub.cmu.edu/articles/dataset/Selectivity_for_food_in_human_ventral_visual_cortex/22049177). The localizer code is organized as such, with each file being independently runnable:
+The preprocessed localizer data from our paper is available at [this link](https://kilthub.cmu.edu/articles/dataset/Selectivity_for_food_in_human_ventral_visual_cortex/22049177). After downloading it can be added to the `food4thought/localizer/data` directory. Please contact the corresponding author to obtain the pycortex store for the subjects from the paper. After you obtain them, you should add them to your [pycortex store](https://gallantlab.github.io/pycortex/). You can also run this analysis with your own data, after preprocessing it, obtaining the Free Surfer surfaces for your subject and adding them to pycortex.
+
+The localizer code is organized as such, with each file being independently runnable:
 - analysis
   - run_all.ipynb used to run the localizer analysis for identifying food regions
   - A set of .py files containing the necessary analysis and utility functions
 - data
   - Preprocessed localizer fMRI data for each subject along with the stimulus log files
-- pycortex_db
-  - Pycortex store for the food localizer subjects. Should be added to local pycortex store after pycortex installation
-- food_images
+- food
   - The food images used in the food localizer
 - res
   - Directory for storing the eventual results
